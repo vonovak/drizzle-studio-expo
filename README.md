@@ -34,4 +34,4 @@ Run an Expo app with Expo SQLite on a physical device, simulator or emulator. We
 npx expo start
 ```
 
-In the terminal, press `shift + m` to present the Dev Tools menu and choose `expo-drizzle-studio-plugin` from the list. Drizzle Studio will open in a new web browser tab.
+In the terminal with "start" process, press `shift + m` to present the Dev Tools menu and choose `expo-drizzle-studio-plugin` from the list. Drizzle Studio will open in a new web browser tab.
