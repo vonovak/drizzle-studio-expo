@@ -19,7 +19,7 @@ export function useDrizzleStudio(db: SQLite.SQLiteDatabase | null) {
         const data = await executed.getAllAsync();
         client.sendMessage(`query-${e.id}`, data);
       } catch (error) {
-        client.sendMessage(`query-${e.id}`, { error: error.message });
+        client.sendMessage(`query-${e.id}`, { error: error instanceof Error ? error.message : String(error) });
       }
     };
 
@@ -37,7 +37,7 @@ export function useDrizzleStudio(db: SQLite.SQLiteDatabase | null) {
           }
         });
       } catch (error) {
-        results.push({ error: error.message });
+        results.push({ error: error instanceof Error ? error.message : String(error) });
       }
       client.sendMessage(`transaction-${e.id}`, results);
     };
