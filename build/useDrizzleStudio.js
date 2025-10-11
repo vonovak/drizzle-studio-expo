@@ -16,7 +16,7 @@ export function useDrizzleStudio(db) {
             client.sendMessage(`query-${e.id}`, data);
         }
         catch (error) {
-            client.sendMessage(`query-${e.id}`, { error: error.message });
+            client.sendMessage(`query-${e.id}`, { error: error instanceof Error ? error.message : String(error) });
         }
     };
     const transactionFn = (db, client) => async (e) => {
@@ -32,7 +32,7 @@ export function useDrizzleStudio(db) {
             });
         }
         catch (error) {
-            results.push({ error: error.message });
+            results.push({ error: error instanceof Error ? error.message : String(error) });
         }
         client.sendMessage(`transaction-${e.id}`, results);
     };
